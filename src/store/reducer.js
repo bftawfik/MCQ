@@ -78,6 +78,25 @@ const rootReducer = (state = initState, action) => {
     };
   }
 
+  if (action.type === actionTypes.GO_TO_NEXT_QUESTION) {
+    // console.log(action);
+    return {
+      ...state,
+      user: {
+        ...state.user,
+        activeQuestionNdx: state.user.activeQuestionNdx + 1,
+      },
+    };
+  }
+
+  if (action.type === actionTypes.ADD_ANSWER) {
+    // console.log(action, state.user);
+    return {
+      ...state,
+      user: { ...state.user, answers: [...state.user.answers, action.payload] },
+    };
+  }
+
   return state;
 };
 

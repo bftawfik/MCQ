@@ -25,3 +25,12 @@ export const changeActiveQuestionNdx = (value) => ({
   type: actionTypes.CHANGE_ACTIVE_QUESTION_NDX,
   payload: value,
 });
+
+export const goToNextQuestion = () => ({
+  type: actionTypes.GO_TO_NEXT_QUESTION,
+});
+
+export const addAnswer = (value) => ({
+  type: actionTypes.ADD_ANSWER,
+  payload: value,
+});
