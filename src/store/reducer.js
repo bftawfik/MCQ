@@ -1,7 +1,13 @@
 import * as actionTypes from "./actions/actionTypes";
 
 const initState = {
-  username: "",
+  user: {
+    username: "",
+    randomQueue: null,
+    activeQuestionNdx: null,
+    score: 0,
+    answers: [],
+  },
   tempUsername: "",
   questions: [
     {
@@ -35,14 +41,15 @@ const initState = {
       correctAnswerNdx: 0,
     },
   ],
-  randomQueue: null,
-  activeQuestionNdx: null,
 };
 
 const rootReducer = (state = initState, action) => {
   if (action.type === actionTypes.ADD_USERNAME) {
     // console.log(action);
-    return { ...state, username: action.payload };
+    return {
+      ...state,
+      user: { ...state.user, username: action.payload },
+    };
   }
 
   if (action.type === actionTypes.ADD_TEMP_USERNAME) {
@@ -50,19 +57,25 @@ const rootReducer = (state = initState, action) => {
     return { ...state, tempUsername: action.payload };
   }
 
-  if (action.type === actionTypes.RESET_USERNAME) {
+  if (action.type === actionTypes.RESET_TEMP_USERNAME) {
     // console.log(action);
     return { ...state, tempUsername: "" };
   }
 
   if (action.type === actionTypes.CREATE_RANDOM_QUEUE) {
     // console.log(action);
-    return { ...state, randomQueue: action.payload };
+    return {
+      ...state,
+      user: { ...state.user, randomQueue: action.payload },
+    };
   }
 
   if (action.type === actionTypes.CHANGE_ACTIVE_QUESTION_NDX) {
     // console.log(action);
-    return { ...state, activeQuestionNdx: action.payload };
+    return {
+      ...state,
+      user: { ...state.user, activeQuestionNdx: action.payload },
+    };
   }
 
   return state;

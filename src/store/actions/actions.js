@@ -12,8 +12,8 @@ export const addTempUsername = (value) => ({
   payload: value,
 });
 
-export const resetUsername = () => ({
-  type: actionTypes.RESET_USERNAME,
+export const resetTempUsername = () => ({
+  type: actionTypes.RESET_TEMP_USERNAME,
 });
 
 export const createRandomQueue = (length) => ({
