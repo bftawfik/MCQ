@@ -16,8 +16,17 @@ class Home extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { tempUsername, addUsername, resetUsername } = this.props;
+    const {
+      tempUsername,
+      addUsername,
+      questions,
+      createRandomQueue,
+      resetActiveQuestionNdx,
+      resetUsername,
+    } = this.props;
     addUsername(tempUsername);
+    createRandomQueue(questions.length);
+    resetActiveQuestionNdx();
     resetUsername();
   };
 
@@ -44,6 +53,8 @@ const mapStateToProps = (state) => {
   return {
     username: state.username,
     tempUsername: state.tempUsername,
+    questions: state.questions,
+    activeQuestionNdx: state.activeQuestionNdx,
   };
 };
 
@@ -57,6 +68,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     resetUsername: () => {
       dispatch(actionCreators.resetUsername());
+    },
+    createRandomQueue: (length) => {
+      dispatch(actionCreators.createRandomQueue(length));
+    },
+    resetActiveQuestionNdx: () => {
+      dispatch(actionCreators.changeActiveQuestionNdx(0));
     },
   };
 };
