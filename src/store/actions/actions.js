@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 
+import { shuffleArray } from "../../Helpers/helperFunctions";
 
 export const addUsername = (value) => ({
   type: actionTypes.ADD_USERNAME,
@@ -13,4 +14,14 @@ export const addTempUsername = (value) => ({
 
 export const resetUsername = () => ({
   type: actionTypes.RESET_USERNAME,
+});
+
+export const createRandomQueue = (length) => ({
+  type: actionTypes.CREATE_RANDOM_QUEUE,
+  payload: shuffleArray(Array.from(Array(length).keys())),
+});
+
+export const changeActiveQuestionNdx = (value) => ({
+  type: actionTypes.CHANGE_ACTIVE_QUESTION_NDX,
+  payload: value,
 });
