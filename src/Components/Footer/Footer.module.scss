@@ -1,0 +1,13 @@
+@import "../../SharedScss/variables";
+.Footer {
+  .container {
+    box-shadow: 0 0 10px -5px $clr-001;
+    padding: $web-side-space 30px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $clr-002;
+  }
+}
