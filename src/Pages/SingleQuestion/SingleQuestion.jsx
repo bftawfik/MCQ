@@ -5,18 +5,25 @@ import { connect } from "react-redux";
 import FulscrnWrpr from "../../Components/FulscrnWrpr/FulscrnWrpr";
 import QuestionCard from "../../Components/QuestionCard/QuestionCard";
 
+import * as actionCreators from "../../store/actions/actions";
+
 const SingleQuestion = ({
   username,
   randomQueue,
   questions,
   activeQuestionNdx,
+  addAnswer,
+  goToNextQuestion,
 }) => {
-  return username?.length ? (
+  return activeQuestionNdx === questions.length ? (
+    <Redirect to="/score" />
+  ) : username?.length ? (
     <FulscrnWrpr>
       <QuestionCard
         {...questions[randomQueue[activeQuestionNdx]]}
-        onChoose={(answer) => {
-          console.log(answer);
+        onChoose={(answerNdx) => {
+          addAnswer(answerNdx);
+          goToNextQuestion();
         }}
       />
     </FulscrnWrpr>
@@ -34,8 +41,15 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = () => {
-  return {};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addAnswer: (value) => {
+      dispatch(actionCreators.addAnswer(value));
+    },
+    goToNextQuestion: () => {
+      dispatch(actionCreators.goToNextQuestion());
+    },
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleQuestion);
