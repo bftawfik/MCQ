@@ -1,6 +1,6 @@
 @import "../../SharedScss/variables";
 
-.Home {
+.UserScore {
   .container {
     box-shadow: 0 5px 10px -5px $clr-001;
     padding: $web-side-space 30px;
@@ -11,5 +11,16 @@
     text-transform: uppercase;
     color: $clr-002;
     background-color: $clr-003;
+    div {
+      display: flex;
+      flex-direction: column;
+      border-radius: 15px;
+      padding: $web-section-padding-top $web-side-space
+        $web-section-padding-bottom;
+      background-color: $clr-004;
+      min-height: 65vh;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

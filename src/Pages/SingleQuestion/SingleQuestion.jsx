@@ -7,6 +7,8 @@ import QuestionCard from "../../Components/QuestionCard/QuestionCard";
 
 import * as actionCreators from "../../store/actions/actions";
 
+import * as styles from "./SingleQuestion.module.scss";
+
 const SingleQuestion = ({
   username,
   randomQueue,
@@ -18,9 +20,14 @@ const SingleQuestion = ({
   return activeQuestionNdx === questions.length ? (
     <Redirect to="/score" />
   ) : username?.length ? (
-    <FulscrnWrpr>
+    <FulscrnWrpr
+      className={styles.SingleQuestion}
+      containerClassName={styles.container}
+    >
       <QuestionCard
         {...questions[randomQueue[activeQuestionNdx]]}
+        activeQuestionNdx={activeQuestionNdx}
+        totalQuestions={questions.length}
         onChoose={(answerNdx) => {
           addAnswer(answerNdx);
           goToNextQuestion();
