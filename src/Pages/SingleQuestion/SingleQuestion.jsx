@@ -27,10 +27,10 @@ const SingleQuestion = ({
 
 const mapStateToProps = (state) => {
   return {
-    username: state.username,
-    randomQueue: state.randomQueue,
+    username: state.user.username,
+    randomQueue: state.user.randomQueue,
     questions: state.questions,
-    activeQuestionNdx: state.activeQuestionNdx,
+    activeQuestionNdx: state.user.activeQuestionNdx,
   };
 };
 

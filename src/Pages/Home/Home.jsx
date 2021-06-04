@@ -22,16 +22,16 @@ class Home extends Component {
       questions,
       createRandomQueue,
       resetActiveQuestionNdx,
-      resetUsername,
+      resetTempUsername,
     } = this.props;
     addUsername(tempUsername);
     createRandomQueue(questions.length);
     resetActiveQuestionNdx();
-    resetUsername();
+    resetTempUsername();
   };
 
   render() {
-    const { username, tempUsername, resetUsername } = this.props;
+    const { username, tempUsername, resetTempUsername } = this.props;
     return (
       <FulscrnWrpr>
         {username ? (
@@ -41,7 +41,7 @@ class Home extends Component {
             tempUsername={tempUsername}
             onInputHandler={this.onInput}
             onSubmitHandler={this.onSubmit}
-            onResetHandler={resetUsername}
+            onResetHandler={resetTempUsername}
           />
         )}
       </FulscrnWrpr>
@@ -51,10 +51,10 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    username: state.username,
+    username: state.user.username,
     tempUsername: state.tempUsername,
     questions: state.questions,
-    activeQuestionNdx: state.activeQuestionNdx,
+    activeQuestionNdx: state.user.activeQuestionNdx,
   };
 };
 
@@ -66,8 +66,8 @@ const mapDispatchToProps = (dispatch) => {
     addTempUsername: (value) => {
       dispatch(actionCreators.addTempUsername(value));
     },
-    resetUsername: () => {
-      dispatch(actionCreators.resetUsername());
+    resetTempUsername: () => {
+      dispatch(actionCreators.resetTempUsername());
     },
     createRandomQueue: (length) => {
       dispatch(actionCreators.createRandomQueue(length));
