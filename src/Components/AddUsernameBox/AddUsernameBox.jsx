@@ -5,16 +5,16 @@ import { joinClassesWithSpace } from "../../Helpers/helperFunctions";
 import * as styles from "./AddUsernameBox.module.scss";
 
 const AddUsernameBox = ({
-  value,
+  tempUsername,
   onInputHandler,
   onSubmitHandler,
-  resetTempNewMovie,
+  onResetHandler,
 }) => {
   return (
     <form
       className={styles.AddUsernameBox}
       onSubmit={onSubmitHandler}
-      onReset={resetTempNewMovie}
+      onReset={onResetHandler}
     >
       <div className={styles.formRow}>
         <label
@@ -25,7 +25,7 @@ const AddUsernameBox = ({
         </label>
         <input
           type="text"
-          value={value}
+          value={tempUsername}
           className={styles.formInput}
           id="username"
           name="username"
