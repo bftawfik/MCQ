@@ -5,7 +5,7 @@ import * as styles from "./WelcomeBox.module.scss";
 
 const WelcomeBox = ({ username, history }) => {
   const gotoMCQ = () => {
-    history.push("/question/1")
+    history.push("/question")
   }
   return (
     <div className={styles.WelcomeBox}>
