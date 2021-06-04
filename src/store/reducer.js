@@ -90,10 +90,15 @@ const rootReducer = (state = initState, action) => {
   }
 
   if (action.type === actionTypes.ADD_ANSWER) {
-    // console.log(action, state.user);
+    const { correctAnswerNdx } =
+      state.questions[state.user.randomQueue[state.user.activeQuestionNdx]];
     return {
       ...state,
-      user: { ...state.user, answers: [...state.user.answers, action.payload] },
+      user: {
+        ...state.user,
+        answers: [...state.user.answers, action.payload],
+        score: state.user.score + (action.payload === correctAnswerNdx ? 1 : 0),
+      },
     };
   }
 
