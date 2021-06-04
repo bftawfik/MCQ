@@ -9,7 +9,7 @@ const WelcomeBox = ({ username, history }) => {
   }
   return (
     <div className={styles.WelcomeBox}>
-      <p>Welcome {username}</p>
+      <p>Welcome "{username}"</p>
       <button onClick={gotoMCQ}>Start MCQ exam</button>
     </div>
   );

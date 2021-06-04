@@ -1,8 +1,7 @@
 @import "../../SharedScss/variables";
 .Header {
   .container {
-    // background-color: yellowgreen;
-    box-shadow: 0 0 10px -5px $clr-001;
+    box-shadow: 0 5px 10px -5px $clr-001;
     padding: $web-side-space 30px;
     box-sizing: border-box;
     text-align: center;
@@ -10,5 +9,6 @@
     font-weight: bold;
     text-transform: uppercase;
     color: $clr-002;
+    background-color: $clr-003;
   }
 }

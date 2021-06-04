@@ -6,6 +6,8 @@ import WelcomeBox from "../../Components/WelcomeBox/WelcomeBox";
 import AddUsernameBox from "../../Components/AddUsernameBox/AddUsernameBox";
 
 import * as actionCreators from "../../store/actions/actions";
+
+import * as styles from "./Home.module.scss";
 class Home extends Component {
   onInput = (e) => {
     const { tempUsername, addTempUsername } = this.props;
@@ -33,7 +35,10 @@ class Home extends Component {
   render() {
     const { username, tempUsername, resetTempUsername } = this.props;
     return (
-      <FulscrnWrpr>
+      <FulscrnWrpr
+        className={styles.Home}
+        containerClassName={styles.container}
+      >
         {username ? (
           <WelcomeBox username={username} />
         ) : (

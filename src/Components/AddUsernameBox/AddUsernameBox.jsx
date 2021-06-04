@@ -17,6 +17,9 @@ const AddUsernameBox = ({
       onReset={onResetHandler}
     >
       <div className={styles.formRow}>
+        <h1>Please enter your name</h1>
+      </div>
+      <div className={styles.formRow}>
         <label
           htmlFor="username"
           className={joinClassesWithSpace(styles.formLabel, styles.required)}
