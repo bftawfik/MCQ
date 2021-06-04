@@ -39,12 +39,11 @@
       padding: 15px;
       width: 100%;
       height: auto;
+      border: 1px solid $clr-005;
+      margin-bottom: 10px;
       &::before {
-        content: "-";
+        content: "*";
         margin-right: 5px;
-      }
-      &:hover {
-        background-color: $clr-003;
       }
     }
   }
